@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+  <title>Ekaterina Kochetkova</title>
+  <style>
+    /* ===== Refined theme ===== */
+    :root{ /* light beige background */
+       --bg: #ffffff;         /* light beige */
+  --bg-soft: #fef8f0;
+  --bg-softer: #fef8f0;
+  --tx: #1a1f2b;         /* text color stays dark for readability */
+  --tx-muted: #5c6675;
+  --border: #e6e9ef;
+  --chip: #f4f6fb;
+  --accent: #7b4f2f;     /* darker coffee color */
+  --accent-2: #a67c52;
+  --radius: 14px;
+  --radius-sm: 10px;
+  --shadow: none;
+    }
+    html[data-theme="light"]{ /* same as root for minimalist style */ }
+    *{box-sizing:border-box}
+    html,body{margin:0;font-family:'Montserrat',system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,sans-serif;color:var(--tx);background:var(--bg);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;line-height:1.7}
+    .wrap{max-width:900px;margin:0 auto;padding:28px 18px 80px}
+
+    /* Top nav */
+    .nav{position:sticky;top:0;background:rgba(255,255,255,.9);backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid var(--border);z-index:10}
+    .nav-inner{max-width:900px;margin:0 auto;padding:10px 18px;display:flex;gap:18px;align-items:center;justify-content:space-between}
+    .brand{font-weight:800;color:var(--tx);letter-spacing:.2px}
+    .nav a{color:var(--tx-muted);text-decoration:none;font-weight:700;font-size:.92rem;margin:0 6px}
+    .nav a:hover{color:var(--accent)}
+    .btn{cursor:pointer;border:1px solid var(--border);background:#fff;color:var(--tx);padding:6px 10px;border-radius:10px;font-weight:700;font-size:.85rem}
+
+    /* Header */
+    .hero {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 28px;
+  align-items: start;
+  padding: 6px 0;
+  border: none;
+  background: transparent;
+}
+
+.hero-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  margin-bottom: 12px;
+}
+
+.name-row {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* space between name and icon */
+}
+
+.name-row h1 {
+  margin: 0;
+  font-size: 2.1rem;
+  letter-spacing: 0.2px;
+}
+
+.scholar-link img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  display: block;
+}
+
+/* separate modifier for CV button if you want a different background */
+.scholar-link {
+  background: var(--accent-2); /* lighter coffee */
+  border-color: rgba(0,0,0,0.06);
+}
+
+.scholar-link img {transition: transform 0.15s ease;} /* if using white icon on coffee bg */
+
+
+
+.scholar-link {
+  margin-left: 45px; /* tweak value until spacing looks good */
+}
+
+
+.cv-link {
+  margin-left: 0px; /* tweak value until spacing looks good */
+}
+
+.scholar-link:hover{
+  transform: translateY(-2px);
+  border-color: var(--accent-2);
+}
+.hero-right .card#about {
+  margin-top: 82px; /* adjust px to your preferred spacing */
+}
+
+body em, body i {
+  font-style: normal;
+}
+
+.pub-title i {
+  font-style: italic;
+}
+/* prefer gap-based spacing instead of manual margins */
+.name-row {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* space between name and each icon; tweak as desired */
+}
+
+/* shared icon button style */
+.icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #ffffff;
+  text-decoration: none;
+  padding: 0;
+  box-sizing: border-box;
+  transition: transform .12s ease, border-color .12s ease;
+}
+
+/* image inside icon */
+.icon-link img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  display: block;
+}
+
+/* small text fallback for CV if no icon image */
+.cv-text {
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: var(--tx);
+}
+
+/* hover effects */
+.icon-link:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent-2);
+}
+
+/* separate modifier for CV button if you want a different background */
+.cv-link {
+  background: var(--bg); /* lighter coffee */
+  border-color: rgba(0,0,0,0.06);
+}
+.cv-link img { filter: brightness(0) invert(0);  transition: transform 0.15s ease;} /* if using white icon on coffee bg */
+.cv-link .cv-text { color: #ffffff; } /* fallback text color for cv button */
+
+    .avatar{width:300px;height:450px;border-radius:12px;object-fit:cover;border:1px solid var(--border)}
+    .title h1{font-size:2.1rem;margin:0 0 4px 0;letter-spacing:.2px}
+    .title .email{color:var(--tx-muted);font-size:.98rem}
+    .links a{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;border:1px solid var(--border);background:#fff;margin-left:8px;text-decoration:none;transition:transform .15s ease, border-color .2s ease;padding:0}
+    .links a:hover{transform:translateY(-2px);border-color:var(--accent)}
+    .links img{height:20px;width:20px;display:block;object-fit:contain}
+
+    .links{display:flex;align-items:center}
+
+    /* Sections */
+    .section{margin-top:28px}
+    .section h2{position:relative;margin:0 0 12px;font-size:1.05rem;letter-spacing:.3px;color:var(--tx-muted);text-transform:uppercase}
+    .section h2:after{content:"";position:absolute;left:0;bottom:-6px;width:120px;height:2px;background:var(--border)}
+
+    /* Bio block */
+    .card{margin-top:8px;background:#ffffff;border:1px solid var(--border);border-radius:var(--radius);padding:16px}
+    .card h3{margin:0 0 6px;font-size:1rem;color:var(--tx)}
+    .card p{margin:0 0 10px}
+    .card a{color:var(--accent);text-decoration:none}
+    .card a:hover{text-decoration:underline}
+
+    /* Publications — minimalist list */
+    .pub-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+    .pub-item{display:flex;gap:12px;align-items:flex-start;padding:10px 2px;border-bottom:1px solid var(--border)}
+    .pub-item:last-child{border-bottom:none}
+    .thumb{width:54px;height:54px;border-radius:8px;border:1px solid var(--border);background:#fafbff;display:block}
+    .pub-body{flex:1;min-width:0}
+    .pub-title{margin:0 0 4px;font-weight:800;font-size:1.0rem}
+    .pub-authors{margin:0 6px 6px 0;color:var(--tx-muted);font-size:.95rem}
+    .chips{display:flex;flex-wrap:wrap;gap:6px;margin:2px 0 6px}
+    .chip{font-size:.72rem;font-weight:800;color:var(--tx);background:var(--chip);border:1px solid var(--border);padding:3px 8px;border-radius:999px}
+    .chip.venue{background:#0f6fff;color:#fff}
+    .links-row a{display:inline-block;margin-right:12px;font-weight:800;font-size:.9rem;color:var(--accent);text-decoration:none}
+    .links-row a:hover{text-decoration:underline}
+    .pub-venue{margin:0 0 6px;color:var(--tx-muted);font-size:.95rem}
+    .pub-venue em{font-style:italic}
+    .pub-desc{margin:0 0 8px;color:var(--tx);font-size:.96rem}
+
+    ul{padding-left:18px;margin:6px 0 14px}
+    li{margin:4px 0}
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="brand">Ekaterina Kochetkova</div>
+      <div>
+        <a href="#pubs">Publications</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#service">Service</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <header class="hero">
+  <img
+    class="avatar"
+    src="photo.jpeg"
+    alt="Ekaterina Kochetkova"
+    width="300"
+    height="450"
+    srcset="photo.jpeg"
+  />
+  <div>
+    <div class="hero-right">
+    <div class="title">
+      <div class="name-row">
+        <h1>Ekaterina Kochetkova</h1>
+      
+        <!-- Google Scholar -->
+        <a
+          href="https://scholar.google.com/citations?user=N6SCf1MAAAAJ&hl=en&oi=ao"
+          title="Google Scholar (opens in new tab)"
+          class="icon-link scholar-link"
+          target="_blank"
+          rel="noopener"
+        >
+          <img src="GoogleScholar.svg" alt="Google Scholar" />
+        </a>
+        
+  
+<!-- CV square -->
+<a
+href="cv.pdf"
+title="Curriculum Vitae"
+class="icon-link cv-link"
+target="_blank"
+rel="noopener"
+>
+<img src="cv.svg" alt="CV" />
+</a>
+</div>
+      
+      <div class="email">ekaterina.kochetkova@epfl.ch</div>
+    </div>
+
+    <!-- Move Academic Experience here -->
+    <section class="card" id="about">
+      <h3>Academic Experience</h3>
+      <p>I am a third year CS PhD student at <a href="http://epfl.ch/">EPFL</a> working with
+        <a href="https://theory.epfl.ch/kapralov/">Michael Kapralov</a>. I am broadly interested in theoretical computer science.
+        One direction of my current work is applying spectral graph theory to sublinear algorithm design.
+        Another branch is optimization the memory/runtime of LLM inference, emphasizing algorithms with strong theoretical guarantees.
+      </p>  
+    </section>
+  </div>
+</header>
+
+
+    <!-- Publications (stacked list with thumbnails) -->
+    <section id="pubs" class="section">
+      <h2>Publications</h2>
+
+       <ul class="pub-list">
+        <li class="pub-item">
+<div class="pub-body">
+            <p class="pub-title"><i>Spectral Clustering with Side Information</i></p>
+            <p class="pub-authors"> (alphabetical)  Hendrik Fichtenberger, Michael Kapralov, Ekaterina Kochetkova, Silvio Lattanzi, Davide Mazzali, Weronika Wrzos-Kaminska</p>
+            <p class="pub-venue"><em> In the ACM–SIAM Symposium on Discrete Algorithms (SODA), 2026</p>
+          </div>
+        </li>
+        <li class="pub-item">
+<div class="pub-body">
+            <p class="pub-title"><i>Spectral clustering in birthday paradox time</i></p>
+            <p class="pub-authors"> (alphabetical) Michael Kapralov, Ekaterina Kochetkova, Weronika Wrzos-Kaminska</p>
+            <p class="pub-venue"><em> In the ACM–SIAM Symposium on Discrete Algorithms (SODA), 2026</p>
+          </div>
+        </li>
+        <li class="pub-item">
+<div class="pub-body">
+            <p class="pub-title"><i>Streaming Attention Approximation via Discrepancy Theory</i></p>
+            <p class="pub-authors"> Ekaterina Kochetkova, Kshiteej Sheth, Insu Han, Amir Zandieh, Michael Kapralov</p>
+            <p class="pub-venue"><em> In Advances in Neural Information Processing Systems (NeurIPS)</em>, 2025 (Spotlight)</p>
+            <p class="pub-desc">A KV‑cache compression method based on discrepancy theory, offering provable approximation guarantees and strong empirical performance on long‑context benchmarks</p>
+            <p class="links-row"><a href="https://arxiv.org/abs/2502.07861">arXiv</a><a href="https://github.com/ksheth96/BalanceKV">code</a></p>
+          </div>
+        </li>
+      </ul>
+
+      <h3 style="margin:18px 0 6px;color:var(--accent)">Pre-PhD Work</h3>
+      <ul class="pub-list">
+        <li class="pub-item">
+<div class="pub-body">
+            <p class="pub-title"><i>A new Andrews--Crandall-type identity and the number of integer solutions to \(x^2+2y^2+2z^2=n\)</i></p>
+            <p class="pub-authors"> (alphabetical) Mariia Dospolova, Ekaterina Kochetkova, Eric Todd Mortenson</p>
+            <p class="pub-venue"><em>In Ramanujan Journal 63 (2024), no. 4, 969-994</p>
+            
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section id="teaching" class="section">
+      <h2>Teaching</h2>
+      <div class="card">
+        <ul>
+          <li>EPFL
+            <ul>
+              <li><b>CS-450 Advanced Algorithms</b></li>
+              <li><b>CS-251 Theory of Computation</b></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="service" class="section">
+      <h2>Service</h2>
+      <div class="card">
+        <ul>
+          <li>Conference review: SODA, ITCS.</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Theme toggle & persistence
+    const btn = document.getElementById('toggleTheme');
+    btn?.addEventListener('click', ()=>{
+      const html = document.documentElement;
+      const light = html.getAttribute('data-theme') === 'light';
+      html.setAttribute('data-theme', light ? 'dark' : 'light');
+      localStorage.setItem('ks-theme', light ? 'dark' : 'light');
+    });
+    const saved = localStorage.getItem('ks-theme');
+    if(saved){ document.documentElement.setAttribute('data-theme', saved); }
+  </script>
+</body>
+</html>
