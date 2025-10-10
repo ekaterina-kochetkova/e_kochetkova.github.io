@@ -61,7 +61,7 @@
 .name-row {
   display: flex;
   align-items: center;
-  gap: 10px; /* space between name and icon */
+  gap: 10px;
 }
 
 .name-row h1 {
@@ -77,23 +77,22 @@
   display: block;
 }
 
-/* separate modifier for CV button if you want a different background */
 .scholar-link {
-  background: var(--accent-2); /* lighter coffee */
+  background: var(--accent-2); 
   border-color: rgba(0,0,0,0.06);
 }
 
-.scholar-link img {transition: transform 0.15s ease;} /* if using white icon on coffee bg */
+.scholar-link img {transition: transform 0.15s ease;} 
 
 
 
 .scholar-link {
-  margin-left: 45px; /* tweak value until spacing looks good */
+  margin-left: 45px;
 }
 
 
 .cv-link {
-  margin-left: 0px; /* tweak value until spacing looks good */
+  margin-left: 0px; 
 }
 
 .scholar-link:hover{
@@ -111,14 +110,14 @@ body em, body i {
 .pub-title i {
   font-style: italic;
 }
-/* prefer gap-based spacing instead of manual margins */
+
 .name-row {
   display: flex;
   align-items: center;
-  gap: 12px; /* space between name and each icon; tweak as desired */
+  gap: 12px; 
 }
 
-/* shared icon button style */
+
 .icon-link {
   display: inline-flex;
   align-items: center;
@@ -134,7 +133,7 @@ body em, body i {
   transition: transform .12s ease, border-color .12s ease;
 }
 
-/* image inside icon */
+
 .icon-link img {
   width: 20px;
   height: 20px;
@@ -142,26 +141,26 @@ body em, body i {
   display: block;
 }
 
-/* small text fallback for CV if no icon image */
+
 .cv-text {
   font-weight: 700;
   font-size: 0.8rem;
   color: var(--tx);
 }
 
-/* hover effects */
+
 .icon-link:hover {
   transform: translateY(-3px);
   border-color: var(--accent-2);
 }
 
-/* separate modifier for CV button if you want a different background */
+
 .cv-link {
-  background: var(--bg); /* lighter coffee */
+  background: var(--bg);
   border-color: rgba(0,0,0,0.06);
 }
 .cv-link img { filter: brightness(0) invert(0);  transition: transform 0.15s ease;} /* if using white icon on coffee bg */
-.cv-link .cv-text { color: #ffffff; } /* fallback text color for cv button */
+.cv-link .cv-text { color: #ffffff; } 
 
     .avatar{width:300px;height:450px;border-radius:12px;object-fit:cover;border:1px solid var(--border)}
     .title h1{font-size:2.1rem;margin:0 0 4px 0;letter-spacing:.2px}
@@ -245,17 +244,17 @@ body em, body i {
         </a>
         
   
-<!-- CV square -->
-<a
-href="cv.pdf"
-title="Curriculum Vitae"
-class="icon-link cv-link"
-target="_blank"
-rel="noopener"
->
-<img src="cv.svg" alt="CV" />
-</a>
-</div>
+        <!-- CV square -->
+        <a
+          href="cv.pdf"
+          title="Curriculum Vitae"
+          class="icon-link cv-link"
+          target="_blank"
+          rel="noopener"
+        >
+          <img src="cv.svg" alt="CV" />
+        </a>
+      </div>
       
       <div class="email">ekaterina.kochetkova@epfl.ch</div>
     </div>
@@ -310,6 +309,7 @@ rel="noopener"
             <p class="pub-title"><i>A new Andrews--Crandall-type identity and the number of integer solutions to \(x^2+2y^2+2z^2=n\)</i></p>
             <p class="pub-authors"> (alphabetical) Mariia Dospolova, Ekaterina Kochetkova, Eric Todd Mortenson</p>
             <p class="pub-venue"><em>In Ramanujan Journal 63 (2024), no. 4, 969-994</p>
+            <p class="links-row"><a href="https://arxiv.org/abs/2307.05244">arXiv</a>
             
           </div>
         </li>
